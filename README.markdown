@@ -1,20 +1,17 @@
-deep-equal
-==========
+deep-equal2
+============
 
-Node's `assert.deepEqual() algorithm` as a standalone module.
+Node's `assert.deepEqual() algorithm` with constructor check
 
 This module is around [5 times faster](https://gist.github.com/2790507)
 than wrapping `assert.deepEqual()` in a `try/catch`.
 
-[![browser support](http://ci.testling.com/substack/node-deep-equal.png)](http://ci.testling.com/substack/node-deep-equal)
 
-[![build status](https://secure.travis-ci.org/substack/node-deep-equal.png)](http://travis-ci.org/substack/node-deep-equal)
-
-example
-=======
+example-normal
+==============
 
 ``` js
-var equal = require('deep-equal');
+var equal = require('deep-equal2');
 console.dir([
     equal(
         { a : [ 2, 3 ], b : [ 4 ] },
@@ -26,11 +23,22 @@ console.dir([
     )
 ]);
 ```
+example - with constructor check
+================================
+``` js
+var equal = require('deep-equal2');
+console.dir([
+    equal(
+        { a : 'str', b: 10, c: [10, true], d: {k: [1121, 2323], d: Number} },
+        { a : String, b: Number, c: [Number, Boolean] , d: {k: Array, d: 10} }
+    )
+]);
+```
 
 methods
 =======
 
-var deepEqual = require('deep-equal')
+var deepEqual = require('deep-equal2')
 
 deepEqual(a, b)
 ---------------
@@ -44,7 +52,7 @@ install
 With [npm](http://npmjs.org) do:
 
 ```
-npm install deep-equal
+npm install deep-equal2
 ```
 
 test
