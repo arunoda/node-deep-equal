@@ -1,6 +1,8 @@
 deep-equal2
 ============
 
+Reason for the existance: https://github.com/substack/node-deep-equal/pull/3
+
 Node's `assert.deepEqual() algorithm` with constructor check
 
 This module is around [5 times faster](https://gist.github.com/2790507)
